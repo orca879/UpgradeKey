@@ -1,0 +1,21 @@
+# UpgradeKey 1.0.0
+max-tokens: 5
+# Demora Legendary Weapons 7.0 command integration:
+# /demorahop give <weapon_id> <player_name>
+demora:
+  enabled: true
+  command: "demorahop give %weapon% %player%"
+
+# Reward used when a player has no personal weapon assignment.
+default-weapon: "mjolnir"
+
+# Players can be assigned a different reward in the OP menu.
+# Entries are stored by UUID automatically.
+assigned-weapons: {}
+
+messages:
+  prefix: "&8[&6UpgradeKey&8] &r"
+  kill: "&aYou earned an Upgrade Token! &e%tokens%&7/&e%max%"
+  lost: "&cYou lost 1 Upgrade Token because %killer% killed you. &e%tokens%&7/&e%max%"
+  max: "&6You reached +%max% Upgrade Tokens! Your legendary weapon is being awarded."
+  weapon-pending: "&eMake room in your inventory; your legendary weapon is waiting."

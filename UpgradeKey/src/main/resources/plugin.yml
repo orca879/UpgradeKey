@@ -1,0 +1,16 @@
+name: UpgradeKey
+version: 1.0.0
+main: com.upgradekey.UpgradeKeyPlugin
+api-version: '26.2'
+author: OpenAI
+description: Player-kill Upgrade Tokens and Demora Legendary Weapons rewards.
+softdepend: [DemoraLegendaryWeapons]
+commands:
+  upgradekey:
+    description: Upgrade Token and legendary weapon administration.
+    usage: /upgradekey <menu|tokens|give|set|reload>
+    aliases: [ukey, upgrade]
+permissions:
+  upgradekey.admin:
+    description: Manage Upgrade Tokens and weapon assignments.
+    default: op
