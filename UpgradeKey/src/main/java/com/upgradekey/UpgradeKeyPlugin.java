@@ -261,7 +261,7 @@ public final class UpgradeKeyPlugin extends JavaPlugin implements Listener, Comm
         if (pendingReward.contains(player.getUniqueId())) {
             Bukkit.getScheduler().runTask(this, () -> {
                 if (getTokens(player.getUniqueId()) >= maxTokens() && !hasRewardItem(player)) giveReward(player);
-            });
+            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         }
     }
     @EventHandler public void onInventoryMove(InventoryMoveItemEvent event) {
