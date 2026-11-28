@@ -259,16 +259,17 @@ public final class UpgradeKeyPlugin extends JavaPlugin implements Listener, Comm
         }
         boolean hotbarReward = event.getHotbarButton() >= 0 && isRewardItem(player.getInventory().getItem(event.getHotbarButton()));
         if (isRewardItem(event.getCurrentItem()) || isRewardItem(event.getCursor()) || hotbarReward) event.setCancelled(true);
-        if (pendingReward.contains(player.getUniqueId())) {
-            Bukkit.getScheduler().runTask(this, () -> {
-                if (getTokens(player.getUniqueId()) >= maxTokens() && !hasRewardItem(player)) giveReward(player);
-            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+       if (pendingReward.contains(player.getUniqueId())) {
+    Bukkit.getScheduler().runTask(this, () -> {
+        if (getTokens(player.getUniqueId()) >= maxTokens() && !hasRewardItem(player)) {
+            giveReward(player);
         }
-    }
-    @EventHandler public void onInventoryMove(InventoryMoveItemEvent event) {
-        if (isRewardItem(event.getItem())) event.setCancelled(true);
-    }
-
+    });
+}
+}
+@EventHandler public void onInventoryMove(InventoryMoveItemEvent event) {
+    if (isRewardItem(event.getItem())) event.setCancelled(true);
+}
     @EventHandler public void onInventoryPickup(InventoryPickupItemEvent event) {
         if (isRewardItem(event.getItem().getItemStack())) event.setCancelled(true);
     }
